@@ -1,0 +1,23 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <!--div class="fadeIn first">
+        <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+      </div-->
+  
+      <!-- Login Form -->
+      <div class="imgcontainer">
+        <img src="assets/LBlogo.png" alt="LBlogo" class="LBlogo">
+      </div>
+      
+        <input type="text" #email class="fadeIn second" name="login"  placeholder="login">
+        <input type="password" #password class="fadeIn third" name="login"  placeholder="password" >
+        <input type="submit" class="fadeIn fourth" (click)="connect(email.value, password.value)" value="Log In">
+        
+  
+    
+  
+    </div>
+  </div>

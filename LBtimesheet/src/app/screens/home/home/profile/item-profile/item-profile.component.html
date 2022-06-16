@@ -1,0 +1,55 @@
+
+
+<div style="width: 100%;float:right;">
+    <div>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" style="float:right;cursor: pointer;"(click)="CancelDialog()">close</mat-icon>
+    </div>
+
+
+    
+    <div >
+        <h1  mat-dialog-title class="title-profile">Add Profile</h1>
+    </div>
+    <hr style="color:#000 ;">
+</div>
+
+
+
+<form >
+    
+
+    <div class="example-form">
+        <label>Enter profile name:</label>
+    <mat-form-field class="example-full-width" style="margin-right: 5px;" floatLabel="auto" hideRequiredMarker appearance="outline" >
+        <mat-label>Profile name</mat-label>
+        <input matInput  name="nameProfile" [(ngModel)]="nameProfile" placeholder="Please enter Profile name "  >
+    </mat-form-field>
+
+    <label>Profile's Description:</label>
+    <mat-form-field class="example-full-width"  appearance="outline">
+        <mat-label>Leave a Description</mat-label>
+        <textarea matInput placeholder="Write your description here." [(ngModel)]="descriptionProfile" name="descriptionProfile" ></textarea>
+      </mat-form-field>
+    
+    </div>   
+        
+        <label>Select Roles:*</label>
+        <div class="container-fluid mb-3">
+            <div style="display: flex;flex-direction: columns;flex-wrap: wrap;">
+                 <mat-checkbox style="margin: 5px; color: black;" *ngFor="let role of singleton.listRoles" [checked]="role.checked" (change)="CheckBox(role,$event)" > {{ role.lblName }}</mat-checkbox>
+            </div>
+        </div>
+
+        <div style=" margin-top: 10px;width: 100%;float:right; ">
+            <mat-checkbox  style="margin-top: 10px;" [(ngModel)]="activeProfile" [checked]="activeProfile" name="activeProfile"> Active</mat-checkbox>
+            
+            <button mat-button type="button" class="btn btn-success btn-lg" style="float:right;width: 100px;"[mat-dialog-close] (click)="saveProfile()">save  </button>
+            <button mat-button type="button" class="btn btn-secondary btn-lg"  style="margin-right: 7px;float:right;width: 100px;" (click)="CancelDialog()" >close</button>
+            
+        </div>
+            
+    
+        
+</form>
+
+

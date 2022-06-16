@@ -1,0 +1,107 @@
+
+
+<mat-toolbar  style="height: 50px;background-color: #009688;" >
+  
+  <mat-toolbar-row >
+ 
+    <button class="btn " style="margin-top: 6px;color: #fff;" type="button" mat-raised-button (click)="toggleSidebar()" >
+      <mat-icon  style="font-size :30px;margin-right: 5px;margin-top: 3px;">notes</mat-icon>
+    </button>
+ 
+ 
+  <button class="nav-link"  routerLink="/home"  >LB TimeSheet</button>
+
+  <div  class="AvatarM">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <!-- Avatar -->
+        <li mdbDropdown class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle d-flex align-items-center"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            mdbDropdownToggle
+            aria-expanded="false"
+          >
+            <img
+              src="assets/avatarM.png"
+              class="rounded-circle"
+              height="45"
+              alt=""
+              loading="lazy"
+            />
+          </a>
+          
+        </li>
+      </ul>
+    </div>
+      
+  </div>
+  
+  
+  
+    <div class="flex-container"  *ngIf="router.url === '/home' || router.url === '/'">
+      
+      <div  style="position: absolute;right:200px;width:190px ;">
+        
+        <ng-multiselect-dropdown class="container-dropdown-header"
+        [placeholder]="'Select Employees'"
+        [settings]="dropdownEmployeeSettings"
+        [data]="singleton.listContacts "
+        
+        [(ngModel)]="listEmployees_Selected"
+        (onSelect)="onItemSelectEmployees($event)"
+        
+        name="employees"
+        
+        >
+        </ng-multiselect-dropdown>
+      
+      </div>
+
+  
+  <div style="width:170px ;position: absolute;right:390px">
+    <ng-multiselect-dropdown class="container-dropdown-header"
+            [placeholder]="'Select Teams'"
+            [settings]="dropdownTeamSettings"
+            [data]="singleton.listTeams"
+            [(ngModel)]="listTeams_Selected"
+            (onSelect)="onItemSelectTeams($event)"
+            name="teams"
+            >
+    </ng-multiselect-dropdown> 
+</div>
+  
+<div style="width:170px ;position: absolute;right: 560px;">
+<ng-multiselect-dropdown class="container-dropdown-header"
+            [placeholder]="'Select Projects'"
+            [settings]="dropdownProjectSettings"
+            [data]="singleton.listProjects"
+            [(ngModel)]="listProjects_Selected"
+            (onSelect)="onItemSelectProjects($event)"
+            
+            name="projects"
+            
+            >
+    </ng-multiselect-dropdown>
+</div>
+</div>
+      
+
+
+  </mat-toolbar-row>
+  
+</mat-toolbar>  
+
+  
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,0 +1,77 @@
+
+
+  
+
+
+
+
+
+
+.sidenavstyle{
+    width: 100%;
+    height:  calc(100% - 70px);  
+}
+
+
+
+
+.menu{
+    color: #666666;
+    font-size: 17px;
+    font-weight: 300;
+    margin-top: 20px;
+    cursor:pointer;
+
+    
+   
+    
+    
+
+/* display: block; */
+        position: relative;
+        margin: 0;
+        border: 0;
+        padding: 10px 15px;
+        text-decoration: none;
+        
+    
+   
+}
+
+.menu:hover{
+    color: #05b066;
+    font-size: 17px;
+    font-weight: 300;
+    width:300px ;
+    
+    padding: 20px;
+    position: relative;
+    background-color: #E7E9EB;
+}
+
+
+.icon{
+    
+    margin-right: 20px;
+    margin-left: 20px;
+    vertical-align: middle;
+    color: inherit;
+}
+
+
+
+
+.mat-drawer{
+
+
+    background-color: #224562;
+    color: #224562;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border:none;
+}
+
+
+  

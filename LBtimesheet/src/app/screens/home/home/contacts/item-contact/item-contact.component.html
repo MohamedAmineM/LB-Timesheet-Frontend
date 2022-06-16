@@ -1,0 +1,145 @@
+<div style="width: 100%;float:right;">
+        <div>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" style="float:right;cursor: pointer;"(click)="CancelDialog()">close</mat-icon>
+        </div>
+    
+    
+        
+        <div >
+            <h1  mat-dialog-title class="title-contact">Add Employee</h1>
+        </div>
+        <hr style="color:#000 ;">
+    </div>
+    
+
+
+<form style="margin-top:50px" >
+
+        
+            
+                <div class="container">
+                        <div >
+                                <label >Enter Name:</label>
+                                <mat-form-field  class="example-full-width" floatLabel="auto" hideRequiredMarker appearance="outline">
+                                    <mat-label >Full name</mat-label>
+                                    <input matInput  name="nameEmployee" [(ngModel)]="nameEmployee" placeholder="Please enter  your full Name "  >
+                                </mat-form-field>
+                        </div>
+                       
+                
+                        <div style="margin-left:28px;width: 50%;">
+                                <label >Enter Email:</label>
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                         <mat-label>Email </mat-label>
+                                         <input matInput  name="emailEmployee" [(ngModel)]="emailEmployee" placeholder="Please enter  email "  >
+                                </mat-form-field>
+                        </div>
+                    
+
+                        
+                            
+                    
+                </div>
+
+                <div class="container">
+                        <div style="width:50% ;">
+
+                                <label >Enter  CIN:</label>
+                                <mat-form-field class="example-full-width" appearance="outline">
+                                        <mat-label>CIN </mat-label>
+                                        <input matInput   name="cinEmployee" [(ngModel)]="cinEmployee" placeholder="Please enter your cin *" >
+                                </mat-form-field>
+                        </div>
+                       
+                        <div style="margin-left:40px;">
+                                <label >Enter phone Number:</label>
+                                <mat-form-field  class="example-full-width" appearance="outline">
+                                    <mat-label>Phone number </mat-label>
+                                    <input matInput  name="phoneEmployee" [(ngModel)]="phoneEmployee" placeholder="Please enter your Phone number"  >
+                                </mat-form-field>
+                        </div>
+
+                     
+                </div>
+
+                        
+                <div style="margin-left:12px ;" >
+                        <label >Select Hire Date:</label>     
+                                <mat-form-field  style="width:98% ;"  appearance="outline">
+                                    <mat-label>Select a Hire date</mat-label>
+                                    <input matInput [matDatepicker]="picker" name="date_embaucheEmployee" [(ngModel)]="date_embaucheEmployee"  placeholder="Please enter hire date "  >
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker">
+                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                    </mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+
+                </div>
+                      
+
+                
+
+
+                
+
+                <div class="dropdown-container"  > 
+                        
+                        <div class="profiles" style="width: 50%; "  >
+                                <label style="color:#000 ;margin-left: 12px;" >Select Employee's Profile:</label>
+                                <ng-multiselect-dropdown  class="container"
+                                [placeholder]="'Select Profile'"
+                                [settings]="dropdownProfilesSettings"
+                                [data]="singleton.listProfiles"
+                                [(ngModel)]="profileSelected"
+                                (onSelect)="onItemProfileSelect($event)"
+                                
+                                name="profile"
+                                >
+                                </ng-multiselect-dropdown>
+                       </div>
+                      
+                       <div class="jobtitle" style="width: 50% ;margin-left: 20px;">
+                        <label style="margin-left:12px ;" >Select Employee's Job Title:</label>
+                                <ng-multiselect-dropdown class="container"
+                                [placeholder]="'Select job-title'"                                
+                                [settings]="dropdownJobTitlesSettings"
+                                [data]="singleton.listJobTitles"
+                                [(ngModel)]="jobTitleSelected"
+                                
+                                (onSelect)="onItemJobTitlesSelect($event)"
+                               
+                                name="jobTitle"
+                                >
+                                </ng-multiselect-dropdown>
+                        </div>
+                </div>
+
+
+
+                
+
+
+
+
+
+
+
+                
+            
+                <div style=" margin-top: 60px;width: 100%;float:right; ">
+                        <mat-checkbox  style="margin-top: 10px;"  name="activeEmployee" [(ngModel)]="activeEmployee" [checked]="activeEmployee"> Active</mat-checkbox>
+                    
+                   
+
+                        <button mat-button type="button" class="btn btn-success btn-lg" style="float:right;width: 150px;"[mat-dialog-close] (click)="saveEmployee()">save  </button>
+                        <button mat-button type="button" class="btn btn-secondary btn-lg"  style="margin-right: 7px;float:right;width: 150px;" (click)="CancelDialog()" >close</button>
+                  
+                </div>
+ 
+
+</form>   
+      
+
+
+    

@@ -1,0 +1,80 @@
+<div style="width: 100%;float:right;">
+    <div>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" style="float:right;cursor: pointer;"(click)="CancelDialog()">close</mat-icon>
+    </div>
+
+
+    
+    <div >
+        <h1  mat-dialog-title class="title-project">Add Project</h1>
+    </div>
+    <hr style="color:#000 ;">
+</div>
+
+
+<form style="margin-top:50px">
+
+    <div class="row">
+        <label >Enter Project Name:</label>
+        <mat-form-field style=" margin-right: 10px; width: 100%;" floatLabel="auto" hideRequiredMarker appearance="outline">
+            <mat-label>Project name</mat-label>
+            <input matInput  name="Projectname" [(ngModel)]="nameProject" placeholder="Please enter the project name "  >
+        </mat-form-field>
+
+        
+        <label > Select Project's Start Date:</label>
+        <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Select a Project start date</mat-label>
+            <input matInput [matDatepicker]="picker" name="startDateProject" [(ngModel)]="startDateProject"  placeholder="please enter a project start date "  >
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <!--div style=" margin-top: 13px; ">
+            <ng-multiselect-dropdown 
+                    [settings]="dropdownSettings"
+                    [placeholder]="'Select Teams'"
+                    
+                    [data]="singleton.listTeams"
+                    [(ngModel)]="listTeams_Selected"
+                    (onSelect)="onItemSelectTeams($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    >
+            </ng-multiselect-dropdown>
+        </div-->
+        
+    </div>
+    <label style="margin-top: 20px;"> Select Project's Manager:</label>
+    <div class="container"  > 
+        
+        <ng-multiselect-dropdown 
+            [placeholder]="'Select Project Manager'"
+            
+            [settings]="dropdownTeamLeadSettings"
+            [data]="singleton.listContacts"
+            
+            [(ngModel)]="ProjectTeamLead_Selected2"
+            (onSelect)="onItemSelectProjectTeamLead($event)"
+            (onSelectAll)="onSelectAll($event)"
+            name="teamLead"
+        >
+        </ng-multiselect-dropdown>
+    
+    </div>
+
+    <div style=" margin-top: 50px;width: 100%;float:right; ">
+        
+        
+        <button mat-button type="button" class="btn btn-success btn-lg" style="float:right;width: 100px;"[mat-dialog-close] (click)="saveProject()">save  </button>
+        <button mat-button type="button" class="btn btn-secondary btn-lg"  style="margin-right: 7px;float:right;width: 100px" (click)="CancelDialog()" >close</button>
+        
+    </div>
+        
+
+
+</form>
+
+

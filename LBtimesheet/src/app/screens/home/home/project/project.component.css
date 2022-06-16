@@ -1,0 +1,21 @@
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+    padding: 10px;
+    
+  }
+
+  .title-component{
+    font-size: 27px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: "Zilla Slab";
+    display: flex;
+    justify-content: flex-start;
+    color:#333333;
+    
+
+  }

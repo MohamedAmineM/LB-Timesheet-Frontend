@@ -1,0 +1,110 @@
+<div style="width: 100%;float:right;">
+    <div>
+        <mat-icon aria-hidden="false" aria-label="Example home icon" style="float:right;cursor: pointer;"(click)="CancelDialog()">close</mat-icon>
+    </div>
+
+
+    
+    <div >
+        <h1  mat-dialog-title class="title-team">Add Team</h1>
+    </div>
+    <hr style="color:#000 ;">
+</div>
+
+
+<form style="margin-top:10px">
+        
+          
+       
+        <div  class="column" >
+            <label>Enter Team name:</label>
+                <mat-form-field style="margin-right: 20px; width:100%;" floatLabel="auto" hideRequiredMarker appearance="outline">
+                    <mat-label>Team name</mat-label>
+                    <input matInput  name="name" [(ngModel)]="name" placeholder="Please enter Team name "  >
+                </mat-form-field>
+                
+                
+                <label>Team's Description:</label>
+                <mat-form-field style=" width: 100%;" appearance="outline">
+                    <mat-label>Leave a Description</mat-label>
+                    <textarea matInput placeholder="Write your description here." [(ngModel)]="description_Team" name="description" ></textarea>
+                  </mat-form-field>
+        </div>
+            
+
+           
+            
+        
+
+        <div class="flex-container"  >
+
+            <div  style="margin-right: 20px; width: 33%;"> 
+                <label style="color:#000 ;margin-left: 12px;" >Select Team's Employees:</label>
+                <ng-multiselect-dropdown class="container"
+                    [placeholder]="'Select Employees'"
+                    [settings]="dropdownEmployeeSettings"
+                    [data]="singleton.listContacts "
+                    [(ngModel)]="listEmployees_Selected"
+                    (onSelect)="onItemSelectEmployees($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    name="employees"
+                    
+                >
+                </ng-multiselect-dropdown>
+            
+            </div>
+
+            <div style="margin-right: 20px;width: 33%;">
+                <label style="color:#000 ;margin-left: 12px;" >Select Team's Projects:</label>
+                <ng-multiselect-dropdown class="container"
+                    [placeholder]="'Select Projects'"
+                    [settings]="dropdownProjectSettings"
+                    [data]="singleton.listProjects"
+                    [(ngModel)]="listProjects_Selected"
+                    (onSelect)="onItemSelectProjects($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    name="projects"
+                    
+                    >
+            </ng-multiselect-dropdown>
+            </div>
+
+            
+
+
+            <div  style="width: 33%;">
+                <label style="color:#000 ;margin-left: 12px;" >Select Team's TeamLead:</label>
+                <ng-multiselect-dropdown class="container"
+                    [placeholder]="'Select TeamLead'"
+                    
+                    [settings]="dropdownTeamLeadSettings"
+                    [data]="singleton.listContacts"
+                    [(ngModel)]="EmployeeTeamLead_Selected1"
+                    (onSelect)="onItemSelectEmployeeTeamLead($event)"
+                    (onSelectAll)="onSelectAll($event)"
+                    name="teamLead"
+                >
+                </ng-multiselect-dropdown>
+            </div>
+
+
+            
+
+        </div>
+
+
+       
+
+        <div style=" margin-top: 30px;width: 100%;float:right; ">
+            <mat-checkbox  style="margin-top: 10px;" [(ngModel)]="active_Team" [checked]="active_Team" name="activeTeam"> Active</mat-checkbox>
+            
+            <button mat-button type="button" class="btn btn-success btn-lg" style="float:right;width: 100px;"[mat-dialog-close] (click)="saveTeam()">save  </button>
+            <button mat-button type="button" class="btn btn-secondary btn-lg"  style="margin-right: 7px;float:right;width: 100px;" (click)="CancelDialog()" >close</button>
+            
+        </div>
+            
+
+
+</form>
+
+

@@ -1,0 +1,71 @@
+
+<app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>  
+
+
+
+    
+
+
+
+
+
+
+
+
+<mat-drawer-container  class="sidenavstyle" hasBackdrop="true">
+    <mat-drawer class="mat-drawer" style="width: 300px; background-color: #fff;font-weight: 500; font-size: 20;"  #drawer mode="over" [opened]="sideBarOpen">
+        
+        
+
+      
+
+       
+       
+    
+
+    <div >
+        
+        <div  class="menu" style="margin-top: 200px;" (click)="goToScreen('/dashboard')"><mat-icon  class="icon" >dashboard</mat-icon><a style="font-weight:bold">Dashboard</a></div>
+        
+     
+
+        <div class="menu"  style="margin-top: 10px;" (click)="goToScreen('/profiles')"><mat-icon class="icon" >person</mat-icon><a style="font-weight:bold">Profiles</a></div>      
+        
+        
+        
+        <div class="menu" style="margin-top: 15px;" (click)="goToScreen('/coworkers')"><mat-icon class="icon" >contacts</mat-icon><a style="font-weight:bold">Coworkers</a></div>      
+        
+        
+
+        <div class="menu" style="margin-top: 15px;" (click)="goToScreen('/projects')"><mat-icon class="icon" >collections</mat-icon><a style="font-weight:bold">Projects/Teams</a></div>      
+        
+        
+
+        <div class="menu" style="margin-top: 15px;" (click)="goToScreen('/job-titles')"><mat-icon class="icon" >work</mat-icon><a style="font-weight:bold">Job Title</a></div>      
+        
+        
+        <div class="menu" style="margin-top: 15px;" (click)="goToScreen('/calendar')"><mat-icon class="icon" >calendar_today</mat-icon><a style="font-weight:bold">Work Time</a></div>      
+        
+        
+
+        <div class="menu" style="margin-top: 15px;" (click)="goToScreen('/settings')"><mat-icon class="icon">settings</mat-icon><a style="font-weight:bold">Settings</a></div>
+        
+        
+        
+        <mat-divider></mat-divider>
+        <div class="menu" style="margin-top: 50px;" (click)="goToScreen('/login')"><mat-icon class="icon">logout</mat-icon><a style="font-weight:bold">Logout</a></div>
+        
+    </div>
+       
+
+
+    </mat-drawer>
+
+    <mat-drawer-content style="background-color: #f4f3ef;">
+     
+        <router-outlet></router-outlet>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+
+  <app-footer></app-footer>

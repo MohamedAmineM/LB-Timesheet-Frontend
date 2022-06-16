@@ -1,0 +1,27 @@
+
+body {
+    background-color: #c4c4c4;
+  
+  }
+  
+  
+  .flex-container{
+    display: flex;
+	flex-direction: row;
+ 
+  }
+
+
+
+.title-project{
+  font-size: 27px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Zilla Slab";
+    display: flex;
+    justify-content: flex-start;
+    color:#333333;
+}
+.example-full-width{
+  width: 20%;
+}

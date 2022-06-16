@@ -1,0 +1,41 @@
+
+ <div class="row"  style="margin: 5px; height: 98%;width:98% ;padding: 2px;margin-left:1% ;margin-right: 1%; background-color: #fff; border-radius:10px;">
+      <div class="column" >
+
+          <div class=" text-center  " >
+            <h1  class="title-component" style="margin-left:40% ;"><b>Project   List</b></h1>
+          </div>
+
+          <ag-grid-angular
+          style=" height:90%;background-color: #fff; border-radius:10px;"
+          class="ag-theme-material " 
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          rowSelection="multiple"
+          >
+
+          </ag-grid-angular>
+      
+      </div>
+
+      <div class="column" >
+          
+        <div class=" text-center  " >
+            <h1  class="title-component" style="margin-left:40% ;"><b>Team List</b></h1>  
+        </div>
+
+
+          <ag-grid-angular
+          style=" height:90%;background-color: #fff; border-radius:10px;"
+          class="ag-theme-material " 
+          [rowData]="rowData2"
+          [columnDefs]="columnDefs2"
+          rowSelection="multiple"
+          >
+
+
+
+          </ag-grid-angular>
+
+      </div>
+</div>
