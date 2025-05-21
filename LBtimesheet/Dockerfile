@@ -1,23 +1,29 @@
-# Étape 1 : Build de l'application Angular
-FROM node:16 AS build
+# Step 1: Build the Angular app
+FROM node:12 AS build
 
+# Set the working directory
 WORKDIR /app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
+
+# Install the dependencies
 RUN npm install
 
+# Copy the source code
 COPY . .
-RUN npm run build --prod
 
-# Étape 2 : Serveur Nginx
+# Build the Angular app for production
+RUN npm run build 
+
+# Step 2: Serve the built app using Nginx
 FROM nginx:alpine
 
-# Copier les fichiers buildés Angular vers le dossier Nginx
-COPY --from=build /app/dist/LBtimesheet /usr/share/nginx/html
+# Copy the build output to the Nginx folder
+COPY --from=build /app/dist/angular-app/browser /usr/share/nginx/html
 
-# Copier la config personnalisée Nginx dans conf.d
-COPY default.conf /etc/nginx/conf.d/default.conf
-
+# Expose the port that Nginx will use
 EXPOSE 80
 
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
