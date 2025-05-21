@@ -1,29 +1,15 @@
-# Step 1: Build the Angular app
+# Étape 1 : build avec node
 FROM node:18 AS build
-
-# Set the working directory
 WORKDIR /app
-
-# Copy package.json and package-lock.json
+ENV NODE_OPTIONS=--openssl-legacy-provider
 COPY package*.json ./
-
-# Install the dependencies
 RUN npm install
-
-# Copy the source code
 COPY . .
+RUN npm run build --prod
 
-# Build the Angular app for production
-RUN npm run build 
-
-# Step 2: Serve the built app using Nginx
+# Étape 2 : servir avec nginx
 FROM nginx:alpine
-
-# Copy the build output to the Nginx folder
-COPY --from=build /app/dist/angular-app/browser /usr/share/nginx/html
-
-# Expose the port that Nginx will use
+COPY --from=build /app/dist/LBtimesheet /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
-
-# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
