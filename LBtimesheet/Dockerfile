@@ -1,5 +1,5 @@
 # Étape 1 : Build de l'application Angular
-FROM node:18 AS build
+FROM node:16 AS build
 
 WORKDIR /app
 
