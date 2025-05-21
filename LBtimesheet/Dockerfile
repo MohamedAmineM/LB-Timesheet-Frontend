@@ -1,4 +1,4 @@
-# Étape 1 : Build Angular avec Node 18
+# Étape 1 : Build de l'application Angular
 FROM node:18 AS build
 
 WORKDIR /app
@@ -7,20 +7,16 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-
-# Ajout de la variable d'environnement pour OpenSSL legacy
-ENV NODE_OPTIONS=--openssl-legacy-provider
-
 RUN npm run build --prod
 
-# Étape 2 : Serveur nginx
+# Étape 2 : Serveur Nginx
 FROM nginx:alpine
 
+# Copier les fichiers buildés Angular vers le dossier Nginx
 COPY --from=build /app/dist/LBtimesheet /usr/share/nginx/html
 
-# Copie le fichier nginx.conf seulement si tu as corrigé son contenu (sans erreur de config)
-# Sinon, supprime ou commente cette ligne pour utiliser la config nginx par défaut
-# COPY nginx.conf /etc/nginx/nginx.conf
+# Copier la config personnalisée Nginx dans conf.d
+COPY default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
