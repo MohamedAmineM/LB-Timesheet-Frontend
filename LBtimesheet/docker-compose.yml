@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  angular-app:
+    container_name: angular-app-container
+    build:
+      context: .         # Le contexte du build (répertoire actuel)
+      dockerfile: Dockerfile  # Nom du Dockerfile (optionnel si nommé Dockerfile)
+    ports:
+      - "4200:4200"      # Angular par défaut utilise le port 4200
+    volumes:
+      - .:/app           # Monte le code local dans le conteneur (utile en dev)
+      - /app/node_modules  # Évite d'écraser node_modules du conteneur
+    command: npm start   # Commande pour lancer le projet Angular (ng serve)
+    restart: always
